@@ -163,16 +163,29 @@ export default function Skills() {
       </AnimateOnScroll>
 
       {/* ── ORBITAL VIEW ── */}
+      {/* Responsive wrapper: scales the fixed 700px canvas to fit the screen */}
       <div
-        className="relative mx-auto mt-8"
+        className="mt-8 overflow-hidden"
+        style={{
+          display: view === "category" ? "none" : "block",
+          opacity: view === "orbital" && !transitioning ? 1 : 0,
+          transition: "opacity 0.3s ease",
+        }}
+      >
+      <div
+        className="relative mx-auto origin-top"
         style={{
           width: 700,
           height: 700,
-          opacity: view === "orbital" && !transitioning ? 1 : 0,
-          transition: "opacity 0.3s ease",
-          display: view === "category" ? "none" : "block",
+          transform: "scale(var(--orbital-scale, 1))",
         }}
       >
+        <style>{`
+          :root { --orbital-scale: 1; }
+          @media (max-width: 700px) {
+            :root { --orbital-scale: calc((100vw - 24px) / 700); }
+          }
+        `}</style>
         {rings.map((ring, i) => (
           <div
             key={`ring-path-${i}`}
@@ -208,6 +221,7 @@ export default function Skills() {
             </div>
           ))
         )}
+      </div>
       </div>
 
       {/* ── CATEGORY VIEW ── */}

@@ -24,7 +24,7 @@ export default function Home() {
         <footer className="border-t border-zinc-200 px-6 py-10 dark:border-zinc-800">
           <div className="mx-auto flex max-w-4xl flex-col items-center gap-5">
             {/* Social links */}
-            <div className="flex items-center gap-5">
+            <div className="flex flex-wrap justify-center items-center gap-4">
               {/* GitHub */}
               <a
                 href="https://github.com/Rooniaz"

@@ -67,7 +67,7 @@ function ProjectCard({
         </h3>
         <p
           className={`mt-1 line-clamp-2 text-sm ${
-            showBgImage ? "text-zinc-200" : "text-zinc-600 dark:text-zinc-400"
+            showBgImage ? "text-zinc-400" : "text-zinc-500 dark:text-zinc-500"
           }`}
         >
           {project.description}
