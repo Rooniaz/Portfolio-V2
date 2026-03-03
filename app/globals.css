@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Hero โหลดหน้า: fade-in ขึ้นมาด้านล่าง */
+@keyframes hero-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-in {
+  animation: hero-fade-in-up 0.7s ease-out forwards;
+}
+
+@keyframes orbit-cw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes orbit-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+/* Skills: bubble glow + category accent */
+.skill-bubble {
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.skill-bubble:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 24px -8px rgb(0 0 0 / 0.2), 0 0 0 1px rgb(255 255 255 / 0.05);
+}
+.dark .skill-bubble:hover {
+  box-shadow: 0 12px 24px -8px rgb(0 0 0 / 0.5), 0 0 20px -4px rgb(59 130 246 / 0.15);
+}
+.skill-bubble-icon {
+  transition: transform 0.25s ease;
+}
+.skill-bubble:hover .skill-bubble-icon {
+  transform: scale(1.1);
+}
+.skills-category-frontend { --skill-accent: 59 130 246; }
+.skills-category-backend { --skill-accent: 34 197 94; }
+.skills-category-testing { --skill-accent: 245 158 11; }
