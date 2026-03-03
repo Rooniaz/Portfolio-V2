@@ -7,10 +7,11 @@ import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import ScrollProgress from "@/components/ScrollProgress";
 import ScrollToTop from "@/components/ScrollToTop";
+import ClientLayout from "@/components/ClientLayout";
 
 export default function Home() {
   return (
-    <>
+    <ClientLayout>
       <ScrollProgress />
       <Nav />
       <main className="min-h-screen bg-white dark:bg-zinc-950">
@@ -25,6 +26,6 @@ export default function Home() {
         </footer>
       </main>
       <ScrollToTop />
-    </>
+    </ClientLayout>
   );
 }

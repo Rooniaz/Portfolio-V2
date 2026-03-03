@@ -83,7 +83,7 @@ export default function Experience() {
       {/* หัวข้อ Experience */}
       <div className="px-6 pt-16 pb-8">
         <AnimateOnScroll>
-          <h2 className="text-center text-3xl font-bold tracking-tight text-white">
+          <h2 className="text-center text-4xl font-bold tracking-tight text-white md:text-5xl">
             Experience
           </h2>
         </AnimateOnScroll>

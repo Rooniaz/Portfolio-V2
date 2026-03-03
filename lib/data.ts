@@ -218,5 +218,5 @@ export const contactForm = {
   title: "Contact Me",
   subtitle: "Have a question or want to work together? Leave your details and I'll get back to you as soon as possible.",
   submitLabel: "SUBMIT",
-  web3formsKey: "2bc9bb11-3e08-4dbb-a6e7-d9192c2f1611",
+  web3formsKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "",
 };
