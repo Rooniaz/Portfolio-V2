@@ -76,7 +76,7 @@ export const skills = {
 } as const;
 
 export const hero = {
-  name: "ROONIAZZ",
+  name: "ROONIAZ",
   role: "GAME & WEB DEVELOPER",
 };
 
@@ -111,106 +111,58 @@ export const education: EducationItem[] = [
 export const projects: Project[] = [
   {
     id: "1",
-    title: "Dotnet Food",
-    description: "Web application for ordering and delivering foods",
+    title: "Nice Dream",
+    description: "",
     category: "web",
-    image: "/projects/dotnet-food.jpg",
-    fullDescription:
-      "A full-stack web application for ordering and delivering foods online. Users can browse menus, add items to cart, and place orders. Built with ASP.NET Core and integrated with a PostgreSQL database.",
-    tags: ["ASP.NET", "PostgreSQL", "Bootstrap"],
-    github: "https://github.com",
-    gallery: [
-      "/projects/dotnet-food.jpg",
-    ],
+    image: "/activity/nice-dream/1.png",
+    fullDescription: "",
+    tags: [],
+    github: "",
+    gallery: Array.from({ length: 14 }, (_, i) => `/activity/nice-dream/${i + 1}.png`),
   },
   {
     id: "2",
-    title: "Quic Gear",
-    description: "Web application for buying and auctioning gaming gear",
+    title: "Unexpected Day",
+    description: "",
     category: "web",
-    image: "/projects/quic-gear.jpg",
-    fullDescription:
-      "An e-commerce and auction platform for gaming peripherals and gear. Features real-time bidding, product listings, and secure checkout.",
-    tags: ["Node.js", "PostgreSQL", "Angular"],
-    github: "https://github.com",
-    gallery: [
-      "/projects/quic-gear.jpg",
-    ],
+    image: "/activity/unexpected-day/1.png",
+    fullDescription: "",
+    tags: [],
+    github: "",
+    gallery: Array.from({ length: 6 }, (_, i) => `/activity/unexpected-day/${i + 1}.png`),
   },
   {
     id: "3",
-    title: "Bake A Cake",
-    description: "The DFA game was made with Godot Engine 3.0",
-    category: "game",
-    image: "/projects/bake-a-cake.jpg",
-    fullDescription:
-      "A game created for the application of NFA DFA in playing games. By playing it, users must enter input to reach the finish line. Otherwise, the user will lose immediately due to the main goal of NFA DFA, called TRAP STATE. The game is in infinity mode. The more you play, the more challenging it will be.",
-    tags: ["Godot 3.0", "DFA"],
-    github: "https://github.com",
-    gallery: [
-      "/projects/bake-a-cake.jpg",
-      "/projects/bake-a-cake-2.jpg",
-      "/projects/bake-a-cake-3.jpg",
-      "/projects/bake-a-cake-4.jpg",
-      "/projects/bake-a-cake-5.jpg",
-    ],
+    title: "Webglasses",
+    description: "",
+    category: "web",
+    image: "/activity/webglasses/1.png",
+    fullDescription: "",
+    tags: [],
+    github: "",
+    gallery: Array.from({ length: 13 }, (_, i) => `/activity/webglasses/${i + 1}.png`),
   },
   {
     id: "4",
-    title: "Terra Craft",
-    description: "Game tower defense made with Godot Engine 3.0",
-    category: "game",
-    image: "/projects/terra-craft.jpg",
-    fullDescription:
-      "A tower defense strategy game developed with Godot Engine 3.0. Players build and upgrade towers to defend against waves of enemies across multiple levels.",
-    tags: ["Godot 3.0", "GDScript"],
-    github: "https://github.com",
-    gallery: [
-      "/projects/terra-craft.jpg",
-      "/projects/terra-craft-2.jpg",
-      "/projects/terra-craft-3.jpg",
-    ],
-  },
-  {
-    id: "5",
-    title: "My Note",
-    description: "Application for note of your activity with expired time",
-    category: "app",
-    image: "/projects/my-note.jpg",
-    fullDescription:
-      "A mobile-friendly note application that allows users to log daily activities with expiry timestamps. Notes are automatically archived when they expire.",
-    tags: ["Flutter", "Dart"],
-    github: "https://github.com",
-    gallery: [
-      "/projects/my-note.jpg",
-    ],
-  },
-  {
-    id: "6",
-    title: "Food Prediction",
-    description: "Application for predicting your foods to eat",
-    category: "app",
-    image: "/projects/food-prediction.jpg",
-    fullDescription:
-      "A machine learning-powered application that predicts meal recommendations based on user preferences and dietary history.",
-    tags: ["Flask", "Python", "ML"],
-    github: "https://github.com",
-    gallery: [
-      "/projects/food-prediction.jpg",
-    ],
+    title: "Webservice Land Tax",
+    description: "",
+    category: "web",
+    image: "/activity/webservice-land-tax/1.png",
+    fullDescription: "",
+    tags: [],
+    github: "",
+    gallery: ["/activity/webservice-land-tax/1.png"],
   },
 ];
 
 export const experience: ExperienceItem = {
-  company: "SIAMCRAFT.NET",
-  role: "DEVELOPER",
-  duration: "MORE THAN 2 YEARS",
-  highlight: "I AM DEVELOPER AT",
+  company: "PP & P ADVANCE",
+  role: "FULL STACK DEVELOPER",
+  duration: "MAY 2025 – PRESENT (1 YEAR)",
+  highlight: "OUTSOURCED TO AIS",
   description:
-    "I am the developer of most of Siamcraft's systems and can support the number of simultaneous players greater than 300. Recently I have implemented an implementation of Jedis (Redis) to allow the game server to support more players. This is one of my achievements that I am very proud of.",
-  // ใส่ path รูปใน public/ (เช่น "/experience-banner.jpg") เพื่อแสดงในแบนเนอร์
+    "Assigned to AIS (Advanced Info Service) project, developing and maintaining enterprise-grade Ticket Trouble System (TTS) and Workforce Management (WFM). Implemented intelligent task assignment logic matching field technicians to tasks based on GPS proximity, skills, and real-time availability. Developed the TTS Mobile (TTSM) application using Cordova, architected backend services with Java Spring Boot and EJB remote calls,  Managed end-to-end deployment of tts-web, wfm-web, and tts-app modules, and optimized SQL performance to meet AIS's SLAs.",
   bannerImage: undefined,
-  // รูปในกริด "What I Do?" ใส่ path ใน public/ (เช่น ["/exp-1.jpg", "/exp-2.jpg", ...])
   galleryImages: undefined,
 };
 

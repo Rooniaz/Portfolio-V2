@@ -111,7 +111,7 @@ export default function Projects() {
         </AnimateOnScroll>
         <AnimateOnScroll delay={100}>
           <div className="mb-10 flex flex-wrap gap-4">
-            {filters.map((f) => {
+            {filters.filter((f) => getCount(f.value) > 0).map((f) => {
               const count = getCount(f.value);
               return (
                 <button

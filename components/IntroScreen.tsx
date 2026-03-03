@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback, useRef } from "react";
 
 const CHARS =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*0123456789";
-const TARGET = "ROONIAZZ";
+const TARGET = "ROONIAZ";
 
 type Phase = "idle" | "scramble" | "ready" | "explode" | "fade" | "done";
 
