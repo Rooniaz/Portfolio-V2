@@ -1,8 +1,16 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { navLinks } from "@/lib/data";
+
+function scrollToSection(id: string) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const navHeight = 72;
+  const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+  window.scrollTo({ top, behavior: "smooth" });
+  history.pushState(null, "", `#${id}`);
+}
 
 export default function Nav() {
   const [active, setActive] = useState<string>("home");
@@ -25,24 +33,29 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", update);
   }, []);
 
-  // Close menu on scroll
+  // Close mobile menu on scroll
   useEffect(() => {
     const close = () => setMenuOpen(false);
     window.addEventListener("scroll", close, { passive: true });
     return () => window.removeEventListener("scroll", close);
   }, []);
 
+  const handleClick = useCallback((href: string) => {
+    const id = href.replace("#", "");
+    scrollToSection(id);
+    setMenuOpen(false);
+  }, []);
+
   return (
     <nav className="fixed left-0 top-0 z-50 w-full border-b border-zinc-200/80 bg-white/90 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/90">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Link
-          href="#home"
+        <button
+          onClick={() => handleClick("#home")}
           className="text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-          onClick={() => setMenuOpen(false)}
         >
           Portfolio
-        </Link>
+        </button>
 
         {/* Desktop links */}
         <ul className="hidden items-center gap-6 md:flex">
@@ -51,8 +64,8 @@ export default function Nav() {
             const isActive = active === id;
             return (
               <li key={item.href}>
-                <Link
-                  href={item.href}
+                <button
+                  onClick={() => handleClick(item.href)}
                   className={`text-sm font-medium transition-all duration-200 hover:scale-105 ${
                     isActive
                       ? "font-semibold text-zinc-900 dark:text-white"
@@ -63,13 +76,13 @@ export default function Nav() {
                     {String(i + 1).padStart(2, "0")}//&nbsp;
                   </span>
                   {item.label}
-                </Link>
+                </button>
               </li>
             );
           })}
         </ul>
 
-        {/* Hamburger button (mobile) */}
+        {/* Hamburger button */}
         <button
           className="flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-200 text-zinc-600 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-800 md:hidden"
           onClick={() => setMenuOpen((o) => !o)}
@@ -87,7 +100,7 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile dropdown menu */}
+      {/* Mobile dropdown */}
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${
           menuOpen ? "max-h-96 border-t border-zinc-200 dark:border-zinc-800" : "max-h-0"
@@ -99,20 +112,19 @@ export default function Nav() {
             const isActive = active === id;
             return (
               <li key={item.href}>
-                <Link
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className={`flex items-center gap-2 py-3 text-sm font-medium transition-colors ${
+                <button
+                  onClick={() => handleClick(item.href)}
+                  className={`flex w-full items-center gap-2 py-3 text-sm font-medium transition-colors ${
                     isActive
                       ? "font-semibold text-zinc-900 dark:text-white"
                       : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
                   }`}
                 >
-                  <span className="text-zinc-400 dark:text-zinc-600 text-xs">
+                  <span className="text-xs text-zinc-400 dark:text-zinc-600">
                     {String(i + 1).padStart(2, "0")}//
                   </span>
                   {item.label}
-                </Link>
+                </button>
               </li>
             );
           })}

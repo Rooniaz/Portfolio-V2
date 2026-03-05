@@ -111,6 +111,22 @@ export default function Skills() {
   const rafRef = useRef<number>(0);
   const [view, setView] = useState<"orbital" | "category">("orbital");
   const [transitioning, setTransitioning] = useState(false);
+  const [orbitalScale, setOrbitalScale] = useState(1);
+
+  // On mobile default to category; track scale for orbital canvas
+  useEffect(() => {
+    const update = () => {
+      const vw = window.innerWidth;
+      if (vw < 640) {
+        setView("category");
+      }
+      const scale = Math.min(1, (vw - 32) / 700);
+      setOrbitalScale(scale);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   useEffect(() => {
     if (view !== "orbital") return;
@@ -163,13 +179,14 @@ export default function Skills() {
       </AnimateOnScroll>
 
       {/* ── ORBITAL VIEW ── */}
-      {/* Responsive wrapper: scales the fixed 700px canvas to fit the screen */}
       <div
         className="mt-8 overflow-hidden"
         style={{
           display: view === "category" ? "none" : "block",
           opacity: view === "orbital" && !transitioning ? 1 : 0,
           transition: "opacity 0.3s ease",
+          // shrink wrapper height to match scaled canvas so no empty space below
+          height: 700 * orbitalScale,
         }}
       >
       <div
@@ -177,15 +194,10 @@ export default function Skills() {
         style={{
           width: 700,
           height: 700,
-          transform: "scale(var(--orbital-scale, 1))",
+          transform: `scale(${orbitalScale})`,
+          transformOrigin: "top center",
         }}
       >
-        <style>{`
-          :root { --orbital-scale: 1; }
-          @media (max-width: 700px) {
-            :root { --orbital-scale: calc((100vw - 24px) / 700); }
-          }
-        `}</style>
         {rings.map((ring, i) => (
           <div
             key={`ring-path-${i}`}
@@ -233,8 +245,8 @@ export default function Skills() {
           display: view === "orbital" ? "none" : "block",
         }}
       >
-        {/* Back button */}
-        <div className="mb-8 flex justify-center">
+        {/* Back button — hidden on mobile (orbital doesn't make sense on small screens) */}
+        <div className="mb-8 hidden justify-center sm:flex">
           <button
             onClick={toggleView}
             className="flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-800/80 px-5 py-2 text-sm font-medium text-zinc-300 transition hover:bg-zinc-700 hover:text-white"
