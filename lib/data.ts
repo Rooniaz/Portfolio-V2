@@ -146,6 +146,18 @@ export const projects: Project[] = [
     gallery: Array.from({ length: 13 }, (_, i) => `/activity/webglasses/${i + 1}.png`),
   },
   {
+    id: "5",
+    title: "MCHost",
+    description: "Web application for Minecraft server hosting management",
+    category: "web",
+    image: "/activity/mchost/1.png",
+    fullDescription:
+      "MCHost is a web application for managing Minecraft server hosting. The platform allows users to create, configure, and monitor their Minecraft servers through an intuitive dashboard interface.",
+    tags: [],
+    github: "",
+    gallery: Array.from({ length: 10 }, (_, i) => `/activity/mchost/${i + 1}.png`),
+  },
+  {
     id: "4",
     title: "Webservice Land Tax",
     description: "Government web service for land tax calculation and management",
@@ -167,7 +179,14 @@ export const experience: ExperienceItem = {
   description:
     "Assigned to AIS (Advanced Info Service) project, developing and maintaining enterprise-grade Ticket Trouble System (TTS) and Workforce Management (WFM). Implemented intelligent task assignment logic matching field technicians to tasks based on GPS proximity, skills, and real-time availability. Developed the TTS Mobile (TTSM) application using Cordova, architected backend services with Java Spring Boot and EJB remote calls,  Managed end-to-end deployment of tts-web, wfm-web, and tts-app modules, and optimized SQL performance to meet AIS's SLAs.",
   bannerImage: undefined,
-  galleryImages: undefined,
+  galleryImages: [
+    "/activity/nice-dream/1.png",
+    "/activity/unexpected-day/1.png",
+    "/activity/webglasses/1.png",
+    "/activity/webservice-land-tax/1.png",
+    "/activity/mchost/1.png",
+    "/activity/nice-dream/2.png",
+  ],
 };
 
 export const contactForm = {
