@@ -129,7 +129,7 @@ export const projects: Project[] = [
     image: "/activity/unexpected-day/1.png",
     fullDescription:
       "Unexpected Day is a story-driven interactive web application featuring anime-style artwork and narrative gameplay elements. Users navigate through scenes and make choices that affect the story outcome. The project showcases creative UI design combined with interactive storytelling mechanics.",
-    tags: ["JavaScript", "HTML", "CSS"],
+    tags: ["React"],
     github: "",
     gallery: Array.from({ length: 6 }, (_, i) => `/activity/unexpected-day/${i + 1}.png`),
   },
@@ -141,7 +141,7 @@ export const projects: Project[] = [
     image: "/activity/webglasses/1.png",
     fullDescription:
       "Webglasses is an e-commerce platform specializing in smart glasses and eyewear. The site features a product catalog with detailed listings, category filtering, a shopping cart, and a clean responsive layout. Designed to highlight product imagery and deliver a seamless browsing experience.",
-    tags: ["Angular", "TypeScript", "Bootstrap"],
+    tags: ["Angular", "TypeScript", "Bootstrap", "Flask", "Python"],
     github: "",
     gallery: Array.from({ length: 13 }, (_, i) => `/activity/webglasses/${i + 1}.png`),
   },
@@ -153,7 +153,7 @@ export const projects: Project[] = [
     image: "/activity/mchost/1.png",
     fullDescription:
       "MCHost is a web application for managing Minecraft server hosting. The platform allows users to create, configure, and monitor their Minecraft servers through an intuitive dashboard interface.",
-    tags: [],
+    tags: ["Next.js", "React", "Java", "Spring Boot", "PHP"],
     github: "",
     gallery: Array.from({ length: 10 }, (_, i) => `/activity/mchost/${i + 1}.png`),
   },
@@ -165,7 +165,7 @@ export const projects: Project[] = [
     image: "/activity/webservice-land-tax/1.png",
     fullDescription:
       "Webservice Land Tax is a government-facing web application designed to streamline land tax calculation and data management. The system allows officers to input land details, compute tax amounts based on official regulations, and generate reports. Built with a focus on accuracy, reliability, and ease of use for administrative workflows.",
-    tags: ["Spring Boot", "Java", "PostgreSQL"],
+    tags: ["C#", "ASP.NET"],
     github: "",
     gallery: ["/activity/webservice-land-tax/1.png"],
   },
