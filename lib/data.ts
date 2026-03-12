@@ -119,7 +119,7 @@ export const projects: Project[] = [
     image: "/activity/nice-dream/1.png",
     fullDescription:
       "Nice Dream is a fashion-focused e-commerce web application that allows users to browse trendy clothing collections inspired by street fashion. The platform features product listings, category filtering, and social sharing functionality. Built with a modern UI to deliver a smooth shopping experience.",
-    tags: ["Angular", "Node.js", "PostgreSQL"],
+    tags: ["HTML", "CSS", "JavaScript","Node.js", "PostgreSQL"],
     github: "",
     gallery: Array.from({ length: 14 }, (_, i) => `/activity/nice-dream/${i + 1}.png`),
   },
