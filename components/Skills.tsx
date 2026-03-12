@@ -10,6 +10,8 @@ const iconMap: Record<string, string> = {
   JavaScript: `${CDN}/javascript/javascript-original.svg`,
   Angular: `${CDN}/angularjs/angularjs-original.svg`,
   TypeScript: `${CDN}/typescript/typescript-original.svg`,
+  React: `${CDN}/react/react-original.svg`,
+  Cordova: `${CDN}/cordova/cordova-original.svg`,
   WordPress: `${CDN}/wordpress/wordpress-original.svg`,
   Bootstrap: `${CDN}/bootstrap/bootstrap-original.svg`,
   "Node.js": `${CDN}/nodejs/nodejs-original.svg`,
@@ -32,14 +34,14 @@ const rings = [
     radius: 238,
     durationSec: 34,
     clockwise: false,
-    skills: ["HTML", "CSS", "JavaScript", "Angular", "PostgreSQL"],
+    skills: ["HTML", "CSS", "JavaScript", "React", "Angular", "PostgreSQL"],
     size: "md" as const,
   },
   {
     radius: 330,
     durationSec: 48,
     clockwise: true,
-    skills: ["Bootstrap", "WordPress", "Java", "SQL", "Flask", "Playwright"],
+    skills: ["Bootstrap", "WordPress", "Cordova", "Java", "SQL", "Flask", "Playwright"],
     size: "sm" as const,
   },
 ];
@@ -51,7 +53,7 @@ const categories = [
     color: "from-blue-600/20 to-blue-500/5 border-blue-500/30",
     badge: "bg-blue-500/20 text-blue-300 border-blue-500/40",
     dot: "bg-blue-400",
-    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "Angular", "Bootstrap", "WordPress"],
+    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Angular", "Cordova", "Bootstrap", "WordPress"],
   },
   {
     key: "backend",
@@ -71,7 +73,11 @@ const categories = [
   },
 ];
 
-const sizeStyles = {
+/** Skills to show larger in orbit and category view */
+const HIGHLIGHT_SKILLS = ["Angular", "Spring Boot", "Java", "TypeScript"];
+
+const sizeStyles: Record<"xl" | "lg" | "md" | "sm", { pill: string; box: string; icon: string }> = {
+  xl: { pill: "px-5 py-3 gap-3 text-base", box: "h-11 w-11 rounded-xl", icon: "h-6 w-6" },
   lg: { pill: "px-4 py-2.5 gap-2.5 text-sm", box: "h-9 w-9 rounded-xl", icon: "h-5 w-5" },
   md: { pill: "px-3.5 py-2 gap-2 text-xs", box: "h-7 w-7 rounded-lg", icon: "h-4 w-4" },
   sm: { pill: "px-3 py-1.5 gap-1.5 text-xs", box: "h-6 w-6 rounded-md", icon: "h-3.5 w-3.5" },
@@ -92,7 +98,7 @@ function SkillIcon({ name, className }: { name: string; className?: string }) {
   );
 }
 
-function SkillPill({ name, size }: { name: string; size: "lg" | "md" | "sm" }) {
+function SkillPill({ name, size }: { name: string; size: "xl" | "lg" | "md" | "sm" }) {
   const s = sizeStyles[size];
   return (
     <div className={`inline-flex items-center whitespace-nowrap select-none rounded-full border border-zinc-700/80 bg-zinc-900/95 font-medium text-zinc-100 backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.6)] ${s.pill}`}>
@@ -229,7 +235,7 @@ export default function Skills() {
               className="absolute z-10"
               style={{ top: CY, left: CX }}
             >
-              <SkillPill name={name} size={ring.size} />
+              <SkillPill name={name} size={HIGHLIGHT_SKILLS.includes(name) ? "xl" : ring.size} />
             </div>
           ))
         )}
@@ -274,17 +280,39 @@ export default function Skills() {
 
               {/* Skills list */}
               <div className="flex flex-col gap-2.5">
-                {cat.skills.map((name) => (
-                  <div
-                    key={name}
-                    className="flex items-center gap-3 rounded-xl border border-zinc-700/60 bg-zinc-900/80 px-3 py-2.5"
-                  >
-                    <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-zinc-800">
-                      <SkillIcon name={name} className="h-5 w-5 object-contain" />
+                {cat.skills.map((name) => {
+                  const isHighlight = HIGHLIGHT_SKILLS.includes(name);
+                  return (
+                    <div
+                      key={name}
+                      className={`flex items-center gap-3 rounded-xl border bg-zinc-900/80 px-3 ${
+                        isHighlight
+                          ? "border-zinc-600/70 py-3"
+                          : "border-zinc-700/60 py-2.5"
+                      }`}
+                    >
+                      <div
+                        className={`flex flex-shrink-0 items-center justify-center rounded-lg bg-zinc-800 ${
+                          isHighlight ? "h-10 w-10" : "h-8 w-8"
+                        }`}
+                      >
+                        <SkillIcon
+                          name={name}
+                          className={isHighlight ? "h-6 w-6 object-contain" : "h-5 w-5 object-contain"}
+                        />
+                      </div>
+                      <span
+                        className={
+                          isHighlight
+                            ? "text-base font-semibold text-zinc-100"
+                            : "text-sm font-medium text-zinc-200"
+                        }
+                      >
+                        {name}
+                      </span>
                     </div>
-                    <span className="text-sm font-medium text-zinc-200">{name}</span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           ))}
