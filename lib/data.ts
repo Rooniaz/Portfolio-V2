@@ -79,7 +79,7 @@ export const skills = {
 
 export const hero = {
   name: "ROONIAZ",
-  role: "GAME & WEB DEVELOPER",
+  role: "WEB DEVELOPER",
 };
 
 export const education: EducationItem[] = [
@@ -126,12 +126,12 @@ export const projects: Project[] = [
   {
     id: "2",
     title: "Unexpected Day",
-    description: "Story-driven interactive web experience with anime-style visuals",
+    description: "Story-driven interactive web experience with art style visuals",
     category: "web",
     image: "/activity/unexpected-day/1.png",
     fullDescription:
-      "Unexpected Day is a story-driven interactive web application featuring anime-style artwork and narrative gameplay elements. Users navigate through scenes and make choices that affect the story outcome. The project showcases creative UI design combined with interactive storytelling mechanics.",
-    tags: ["React"],
+      "Unexpected Day is a story-driven interactive web application featuring artwork and narrative gameplay elements. Users navigate through scenes and make choices that affect the story outcome. The project showcases creative UI design combined with interactive storytelling mechanics.",
+    tags: ["React","Tailwind CSS"],
     github: "",
     gallery: Array.from({ length: 6 }, (_, i) => `/activity/unexpected-day/${i + 1}.png`),
   },
@@ -174,12 +174,12 @@ export const projects: Project[] = [
 ];
 
 export const experience: ExperienceItem = {
-  company: "PP & P ADVANCE",
+  company: "OUTSOURCED TO AIS",
   role: "FULL STACK DEVELOPER",
   duration: "MAY 2025 – PRESENT (1 YEAR)",
-  highlight: "OUTSOURCED TO AIS",
+  highlight: "PP & P ADVANCE",
   description:
-    "Assigned to AIS (Advanced Info Service) project, developing and maintaining enterprise-grade Ticket Trouble System (TTS) and Workforce Management (WFM). Implemented intelligent task assignment logic matching field technicians to tasks based on GPS proximity, skills, and real-time availability. Developed the TTS Mobile (TTSM) application using Cordova, architected backend services with Java Spring Boot and EJB remote calls,  Managed end-to-end deployment of tts-web, wfm-web, and tts-app modules, and optimized SQL performance to meet AIS's SLAs.",
+    "Assigned to AIS (Advanced Info Service) project, developing and maintaining enterprise-grade Ticket Trouble System (TTS) and Workforce Management (WFM). Implemented intelligent task assignment logic matching field technicians to tasks based on GPS proximity, skills, and real-time availability. Developed the TTS Mobile (TTSM) application using Cordova, architected backend services with Java Spring Boot and EJB remote calls,  Managed end-to-end deployment of tts-web, wfm-web, and tts-app modules, and optimized SQL.",
   bannerImage: undefined,
   galleryImages: [
     "/activity/nice-dream/1.png",
